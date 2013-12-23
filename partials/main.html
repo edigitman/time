@@ -1,0 +1,30 @@
+<div class="row offset4">
+    <p>
+
+    <h2>Add your time</h2></p>
+    <p>For time use digit and quantity (w-weeks, d-days, h-hours, m-minutes)</p>
+</div>
+<div class="row offset4">
+    <form novalidate class="simple-form">
+        <input id='timeInput' type="text" placeholder="time" ng-model="nop.time" style="width: 80px"/>
+        <span>-</span>
+        <input type="text" placeholder="description" ng-model="nop.name" style="width: 500px"/>
+        <button class="btn-info btn-fix" ng-click="addOp(nop)" >Add</button>
+    </form>
+</div>
+
+<div class="row offset4">
+    <font face="Lucida Console">
+        <p><b>total time: {{visualTime}}</b></p>
+    </font>
+    <hr/>
+    <ul>
+        <li ng-repeat="op in ops"
+            inline-name="op.name"
+            inline-value='op.time'
+            inline-id='op.id'
+            on-save="updateTodo(op.name, op.time, op.id)"
+            on-cancel="cancelEdit(op.name, op.time)"
+            on-delete="del(op)"/>
+    </ul>
+</div>

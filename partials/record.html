@@ -1,0 +1,11 @@
+<div>
+    <input type="text" style="width: 80px" on-enter="save()" on-esc="cancel()" ng-model="value" ng-show="editMode">
+    <input type="text" style="width: 500px" on-enter="save()" on-esc="cancel()" ng-model="model" ng-show="editMode">
+    <button class="btn-success btn-fix" ng-click="save()" ng-show="editMode">save</button>
+    <button class="btn-danger btn-fix" ng-click="cancel()" ng-show="editMode">cancel</button>
+  <span ng-mouseenter="showEdit = true" ng-mouseleave="showEdit = false">
+    <span ng-hide="editMode" ng-click="edit()">{{value}} - {{model}}</span>
+    <a ng-show="showEdit" class="btn-warning btn-fix" style="text-decoration: none" ng-click="edit()">edit</a>
+    <a ng-show="showEdit" class="btn-danger btn-fix" style="text-decoration: none" ng-click="delete()">delete</a>
+  </span>
+</div>
